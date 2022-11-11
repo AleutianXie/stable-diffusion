@@ -17,7 +17,7 @@ RUN apt-get -y install wget
 
 # install conda
 # Create a working directory
-RUN mkdir /app/anaconda3
+RUN mkdir -p /app/anaconda3
 WORKDIR /app/anaconda3
 RUN cd /app/anaconda3
 RUN wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2022.10-Linux-x86_64.sh
