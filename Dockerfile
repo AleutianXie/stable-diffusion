@@ -21,8 +21,8 @@ RUN mkdir -p /app/anaconda3
 WORKDIR /app/anaconda3
 RUN cd /app/anaconda3
 RUN wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2022.10-Linux-x86_64.sh
-RUN bash Anaconda3-2022.10-Linux-x86_64.sh -b
-RUN echo "export PATH=\"/root/anaconda3/bin:$PATH\"" >> ~/.bashrc
-RUN /bin/bash -c "source /root/.bashrc"
-ENV PATH $PATH
+RUN bash Anaconda3-2022.10-Linux-x86_64.sh -b && \
+    echo "export PATH=\"/root/anaconda3/bin:$PATH\"" >> ~/.bashrc && \
+    /bin/bash -c "source /root/.bashrc"
+ENV PATH /root/anaconda3/bin:$PATH
 RUN conda --version
