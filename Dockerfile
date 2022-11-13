@@ -27,6 +27,8 @@ RUN bash Anaconda3-2022.10-Linux-x86_64.sh -b && \
 ENV PATH /root/anaconda3/bin:$PATH
 RUN conda --version
 
+# install git
+RUN apt-get -y install git
 RUN cd /app
 RUN git clone https://github.com/AleutianXie/stable-diffusion.git
 WORKDIR /app/stable-diffusion
