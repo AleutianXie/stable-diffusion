@@ -26,3 +26,10 @@ RUN bash Anaconda3-2022.10-Linux-x86_64.sh -b && \
     /bin/bash -c "source /root/.bashrc"
 ENV PATH /root/anaconda3/bin:$PATH
 RUN conda --version
+
+RUN cd /app
+RUN git clone https://github.com/AleutianXie/stable-diffusion.git
+WORKDIR /app/stable-diffusion
+
+RUN conda env create -f environment.yaml && \
+    conda activate ldm
