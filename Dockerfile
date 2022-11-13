@@ -1,9 +1,7 @@
 FROM nvidia/cuda:11.4.1-base-ubuntu20.04
 MAINTAINER Aleutian Xie<huisheng.xie@freshape.com>
 
-# ENV DEBIAN_FRONTEND=noninteractive
-RUN echo "dash dash/sh boolean false" | debconf-set-selections
-RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
+ENV DEBIAN_FRONTEND=noninteractive
 
 # update apt sources to aliyun
 # RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
@@ -26,4 +24,4 @@ RUN wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2022.10
 RUN bash Anaconda3-2022.10-Linux-x86_64.sh -b
 RUN echo "export PATH=\"/root/anaconda3/bin:$PATH\"" >> ~/.bashrc
 RUN /bin/bash -c "source /root/.bashrc"
-RUN conda --version
+RUN /bin/bash -c "conda --version"
