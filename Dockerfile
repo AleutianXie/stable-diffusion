@@ -1,7 +1,9 @@
 FROM nvidia/cuda:11.4.1-base-ubuntu20.04
 MAINTAINER Aleutian Xie<huisheng.xie@freshape.com>
 
-ENV DEBIAN_FRONTEND=noninteractive
+# ENV DEBIAN_FRONTEND=noninteractive
+RUN echo "dash dash/sh boolean false" | debconf-set-selections
+RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
 
 # update apt sources to aliyun
 # RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
