@@ -27,15 +27,7 @@ RUN bash Anaconda3-2022.10-Linux-x86_64.sh -b && \
 ENV PATH /root/anaconda3/bin:$PATH
 RUN conda --version
 # conda change to tsinghua source
-
-RUN cat > /root/.condarc <<eof \
-channels: \
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ \
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ \
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/ \
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/ \
-ssl_verify: true \
-eof
+COPY .condarc /root/.condarc
 RUN conda config --show-sources &&  \
     conda config --set show_channel_urls yes&& \
     conda config --set always_yes yes
