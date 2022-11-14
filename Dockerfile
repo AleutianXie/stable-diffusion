@@ -28,6 +28,8 @@ ENV PATH /root/anaconda3/bin:$PATH
 RUN conda --version
 # conda change to tsinghua source
 COPY .condarc /root/.condarc
+# change pip to tsinghua source
+COPY pip.conf /root/.pip/pip.conf
 
 # install git
 RUN apt-get -y install git
