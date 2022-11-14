@@ -27,10 +27,7 @@ RUN bash Anaconda3-2022.10-Linux-x86_64.sh -b && \
 ENV PATH /root/anaconda3/bin:$PATH
 RUN conda --version
 # conda change to tsinghua source
-# COPY .condarc /root/.condarc
-RUN conda config --show-sources &&  \
-    conda config --set show_channel_urls yes&& \
-    conda config --set always_yes yes
+COPY .condarc /root/.condarc
 
 # install git
 RUN apt-get -y install git
