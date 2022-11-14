@@ -9,7 +9,6 @@ channels:
   - defaults
 show_channel_urls: true
 always_yes: true
-verbosity: 3
 default_channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
