@@ -49,4 +49,4 @@ RUN /root/anaconda3/envs/ldm/bin/pip install -e .
 RUN wget https://freshape-xjp.oss-accelerate.aliyuncs.com/Download_data/model/dfu/sd-v1-1.ckpt
 
 # Download hub ...
-RUN python scripts/txt2img.py --prompt "a pretty girl" --plms --ckpt sd-v1-1.ckpt --skip_grid --n_samples 1 --n_iter 1 --ddim_steps 100
+RUN /root/anaconda3/envs/ldm/bin/python scripts/txt2img.py --prompt "a pretty girl" --plms --ckpt sd-v1-1.ckpt --skip_grid --n_samples 1 --n_iter 1 --ddim_steps 100
