@@ -28,7 +28,7 @@ RUN bash Anaconda3-2022.10-Linux-x86_64.sh -b && \
     echo "export PATH=\"/root/anaconda3/bin:$PATH\"" >> ~/.bashrc && \
     /bin/bash -c "source /root/.bashrc"
 ENV PATH /root/anaconda3/bin:$PATH
-RUN conda --version
+RUN conda init bash
 # conda change to tsinghua source
 COPY .condarc /root/.condarc
 # change pip to tsinghua source
