@@ -43,9 +43,9 @@ RUN conda env create -f environment.yaml
 RUN echo "conda activate ldm" >> /root/.bashrc
 SHELL ["/bin/bash", "--login", "-c"]
 
-RUN pip install -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
-RUN pip install -e git+https://github.com/openai/CLIP.git@main#egg=clip
-RUN pip install -e .
+RUN conda activate ldm && pip install -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
+RUN conda activate ldm && pip install -e git+https://github.com/openai/CLIP.git@main#egg=clip
+RUN conda activate ldm && pip install -e .
 RUN wget https://freshape-xjp.oss-accelerate.aliyuncs.com/Download_data/model/dfu/sd-v1-1.ckpt
 
 # Download hub ...
