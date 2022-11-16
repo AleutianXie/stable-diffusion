@@ -340,7 +340,7 @@ def main():
 
     print(f"Your samples are ready and waiting for you here: \n{outpath} \n"
           f" \nEnjoy.")
-    ape.service.dfu_task.upload_model()
+    ape.service.dfu_task.upload_model(opt.n_samples, opt.n_iter)
 
 
 if __name__ == "__main__":
