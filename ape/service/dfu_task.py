@@ -44,7 +44,7 @@ def upload_model(n_samples: int, n_iter: int):
 
         pic_files = []
         for index in (1, n_samples * n_iter):
-            pic_name = str.format("%05d.png", index)
+            pic_name = f"{index:05}.png"
             pic_path = os.path.join(out_path, pic_name)
             oss_pic_path = os.path.join(model_oss_path, pic_name)
             if os.access(pic_path, os.F_OK):
