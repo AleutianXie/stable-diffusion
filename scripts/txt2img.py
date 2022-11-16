@@ -14,6 +14,7 @@ from pytorch_lightning import seed_everything
 from torch import autocast
 from contextlib import contextmanager, nullcontext
 
+import ape.service.dfu_task
 from ldm.util import instantiate_from_config
 from ldm.models.diffusion.ddim import DDIMSampler
 from ldm.models.diffusion.plms import PLMSSampler
@@ -227,7 +228,7 @@ def main():
         default="autocast"
     )
     opt = parser.parse_args()
-
+    ape.service.dfu_task.progress(100)
     if opt.laion400m:
         print("Falling back to LAION 400M model...")
         opt.config = "configs/latent-diffusion/txt2img-1p4B-eval.yaml"
@@ -320,7 +321,8 @@ def main():
 
                         if not opt.skip_grid:
                             all_samples.append(x_checked_image_torch)
-
+                    p = 500 + int(float(n) / opt.n_iter * 9000)
+                    ape.service.dfu_task.progress(p)
                 if not opt.skip_grid:
                     # additionally, save as grid
                     grid = torch.stack(all_samples, 0)
@@ -338,6 +340,7 @@ def main():
 
     print(f"Your samples are ready and waiting for you here: \n{outpath} \n"
           f" \nEnjoy.")
+    ape.service.dfu_task.progress(p)
 
 
 if __name__ == "__main__":

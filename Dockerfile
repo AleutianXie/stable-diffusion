@@ -50,3 +50,16 @@ RUN wget https://freshape-xjp.oss-accelerate.aliyuncs.com/Download_data/model/df
 
 # Download hub ...
 RUN /root/anaconda3/envs/ldm/bin/python scripts/txt2img.py --prompt "a pretty girl" --plms --ckpt sd-v1-1.ckpt --skip_grid --n_samples 1 --n_iter 1 --ddim_steps 100
+
+# python model
+RUN /root/anaconda3/envs/ldm/bin/pip install PyMySQL
+RUN /root/anaconda3/envs/ldm/bin/pip install PyMySQL[rsa]
+RUN /root/anaconda3/envs/ldm/bin/pip install pydantic
+RUN /root/anaconda3/envs/ldm/bin/pip install pydantic[dotenv]
+# install oss python sdk
+RUN /root/anaconda3/envs/ldm/bin/pip install oss2
+
+# copy resource uplate later to k8s config
+COPY .env_prod /app/stable-dreamfusion/ape/.env_prod
+COPY .env_test /app/stable-dreamfusion/ape/.env_test
+COPY .env_dev /app/stable-dreamfusion/ape/.env_dev
