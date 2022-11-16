@@ -60,6 +60,6 @@ RUN /root/anaconda3/envs/ldm/bin/pip install pydantic[dotenv]
 RUN /root/anaconda3/envs/ldm/bin/pip install oss2
 
 # copy resource uplate later to k8s config
-COPY .env_prod /app/stable-dreamfusion/ape/.env_prod
-COPY .env_test /app/stable-dreamfusion/ape/.env_test
-COPY .env_dev /app/stable-dreamfusion/ape/.env_dev
+COPY .env_prod /app/stable-diffusion/ape/.env_prod
+COPY .env_test /app/stable-diffusion/ape/.env_test
+COPY .env_dev /app/stable-diffusion/ape/.env_dev

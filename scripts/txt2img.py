@@ -321,7 +321,7 @@ def main():
 
                         if not opt.skip_grid:
                             all_samples.append(x_checked_image_torch)
-                    p = 500 + int(float(n) / opt.n_iter * 9000)
+                    p = 500 + int(float(n + 1) / opt.n_iter * 9000)
                     ape.service.dfu_task.progress(p)
                 if not opt.skip_grid:
                     # additionally, save as grid
@@ -340,7 +340,7 @@ def main():
 
     print(f"Your samples are ready and waiting for you here: \n{outpath} \n"
           f" \nEnjoy.")
-    ape.service.dfu_task.progress(p)
+    ape.service.dfu_task.upload_model()
 
 
 if __name__ == "__main__":

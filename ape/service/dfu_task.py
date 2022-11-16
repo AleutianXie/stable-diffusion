@@ -16,12 +16,12 @@ def progress(percent: int):
                 connection.commit()
 
 
-def complete(tid: int, model_files: str):
+def complete(tid: int, pic_files: str):
     with mysql.get_db_conn() as connection:
         with connection.cursor() as cursor:
-            sql = f"UPDATE `dfu_task` SET `model_files` = %s, `progress` = 10000, `status` = 2, `job_status` = 3, " \
+            sql = f"UPDATE `dfu_task` SET `pic_files` = %s, `progress` = 10000, `status` = 2, `job_status` = 3, " \
                   f"`updated_at` = REPLACE(unix_timestamp(current_timestamp(3)),'.','') WHERE `id` = %s"
-            cursor.execute(sql, (model_files, tid,))
+            cursor.execute(sql, (pic_files, tid,))
             connection.commit()
 
 
