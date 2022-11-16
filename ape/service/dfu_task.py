@@ -43,7 +43,7 @@ def upload_model(n_samples: int, n_iter: int):
         out_path = os.path.join(os.path.dirname(os.path.dirname(current_path)), "outputs/txt2img-samples/samples")
 
         pic_files = []
-        for index in (1, n_samples * n_iter):
+        for index in range(1, n_samples * n_iter + 1):
             pic_name = f"{index:05}.png"
             pic_path = os.path.join(out_path, pic_name)
             oss_pic_path = os.path.join(model_oss_path, pic_name)
