@@ -63,8 +63,8 @@ RUN pip install tqdm \
     imageio-ffmpeg==0.4.2 \
     pytorch-lightning==1.4.2 \
     omegaconf==2.1.1 \
-    test-tube>=0.7.5 \
-    streamlit>=0.73.1 \
+    test-tube==0.7.5 \
+    streamlit==0.73.1 \
     einops==0.3.0 \
     torch-fidelity==0.3.0 \
     transformers==4.19.2 \
