@@ -47,7 +47,7 @@ RUN echo "conda activate ldm" >> /root/.bashrc
 RUN echo "export QT_QPA_PLATFORM=offscreen" >> /root/.bashrc
 SHELL ["conda", "run", "-n", "ldm", "/bin/bash", "-c"]
 # CUDA 11.3
-RUN conda install -n neus pytorch==1.11.0 \
+RUN conda install -n ldm pytorch==1.11.0 \
     torchvision==0.12.0 \
     cudatoolkit=11.3 -c pytorch
 # RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
